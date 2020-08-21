@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import {API_URL} from '../utils/urls'
 
 export default function Home({posts}) {
   return (
@@ -29,7 +30,7 @@ export default function Home({posts}) {
 
 export async function getStaticProps() {
   // Get external data from the file system, API, DB, etc.
-  const posts_res = await fetch('http://localhost:1337/posts')
+  const posts_res = await fetch(`${API_URL}/posts`)
   const posts = await posts_res.json()
 
   // The value of the `props` key will be

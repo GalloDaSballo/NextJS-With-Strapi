@@ -1,4 +1,5 @@
 import styles from '../../styles/Post.module.css'
+import {API_URL} from '../../utils/urls'
 
 const fromImageToUrl = (image) => {
   console.log("fromImageToUrl", image)
@@ -8,7 +9,7 @@ const fromImageToUrl = (image) => {
 
   if(image.url.indexOf('/') === 0){
     //It's a relative url, add API URL
-    return `http://localhost:1337${image.url}`
+    return `${API_URL}${image.url}`
   }
 
   return image.url
@@ -25,7 +26,7 @@ const Post = ({post}) => {
 }
 
 export async function getStaticProps({params: {id}}) {
-  const posts_res = await fetch(`http://localhost:1337/posts/${id}`)
+  const posts_res = await fetch(`${API_URL}/posts/${id}`)
   const post = await posts_res.json()
 
   return {
@@ -35,10 +36,9 @@ export async function getStaticProps({params: {id}}) {
   }
 }
 
-
 export async function getStaticPaths() {
     // Get external data from the file system, API, DB, etc.
-  const posts_res = await fetch('http://localhost:1337/posts')
+  const posts_res = await fetch(`${API_URL}/posts`)
   const posts = await posts_res.json()
 
     return {
@@ -48,4 +48,5 @@ export async function getStaticPaths() {
       fallback: false
     };
   }
+  
 export default Post

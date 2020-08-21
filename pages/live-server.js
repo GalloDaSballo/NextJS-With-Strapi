@@ -1,17 +1,19 @@
-export default ({count}) => (
+import {API_URL} from '../utils/urls'
+
+export default ({fast}) => (
     <div>
-        Live count is: {count}
+        Live count is: {fast}
     </div>
 )
 
 export async function getServerSideProps(context) {
     console.log("getServerSideProps context", context)
-    const posts_res = await fetch(`http://localhost:1337/posts/count`)
-    const count = await posts_res.json()
+    const posts_res = await fetch(`https://ethgasstation.info/api/ethgasAPI.json`)
+    const {fast} = await posts_res.json()
   
     return {
       props: {
-        count
+        fast
       }
     }
   }
