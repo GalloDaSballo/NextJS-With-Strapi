@@ -48,8 +48,6 @@ export async function getStaticProps() {
   // Get external data from the file system, API, DB, etc.
   const products_res = await fetch(`${API_URL}/products`)
   const products = await products_res.json()
-
-  console.log("getStaticProps products", products)
     
   // The value of the `props` key will be
   //  passed to the `Home` component

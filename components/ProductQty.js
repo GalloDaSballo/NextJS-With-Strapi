@@ -1,4 +1,7 @@
 import useSWR from 'swr'
+
+import BuyButton from './BuyButton'
+
 import {API_URL} from '../utils/urls'
 
 const fetcher = url => fetch(url).then(r => r.json())
@@ -9,15 +12,15 @@ export default function LiveClient({product}) {
     if (error) return <div>failed to load</div>
     if (!data) return <div>loading...</div>
 
-    const qty = data.qt
+    const qty = data.qty
 
     return (
             <div>
                 <div>
-                    {data.qty} Left
+                    {qty} Left
                 </div>
                 <div>
-                    {parseInt(data.qty) > 0 && <button>BUY</button>}
+                    {parseInt(qty) > 0 && <BuyButton product={product} />}
                 </div>
             </div>
         )

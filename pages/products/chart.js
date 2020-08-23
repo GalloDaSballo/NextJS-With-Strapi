@@ -5,8 +5,12 @@ export default ({products}) => (
     <div>
 
         <Head>
+            <title>Top Selling Products</title>
+            <meta name="description" 
+                content="These are the best sellers"
+            />
         </Head>
-
+        <h2>Top Sellers</h2>
         {products.map((product, counter) => (
             <Link href="/products/[id]" as={`/products/${product.id}`}>
                 <a>
@@ -18,7 +22,6 @@ export default ({products}) => (
 )
 
 export async function getServerSideProps(context) {
-    console.log("getServerSideProps context", context)
     const products_res = await fetch(`${API_URL}/products?_sort=qty:asc`)
     const products = await products_res.json()
   

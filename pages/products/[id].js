@@ -35,7 +35,6 @@ const Product = ({product}) => {
 
 export async function getStaticProps({params: {id}}) {
   const product_res = await fetch(`${API_URL}/products/${id}`)
-  console.log("getStaticProps product_res", product_res)
   const product = await product_res.json()
 
   return {
