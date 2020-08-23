@@ -1,5 +1,10 @@
 import { loadStripe } from '@stripe/stripe-js'
+
+import styles from '../styles/BuyButton.module.css'
+
 const stripePromise = loadStripe('pk_test_N30aQqXtRkyoayWHqMwKkgXC00TG2IO3RN')
+
+
 
 export default ({product}) => {
 
@@ -23,6 +28,6 @@ export default ({product}) => {
     }
 
     return(
-        <button onClick={handleBuy}>BUY</button>
+        <button className={styles.buy} onClick={handleBuy}>BUY</button>
     )
 }

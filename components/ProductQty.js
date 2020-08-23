@@ -17,10 +17,7 @@ export default function LiveClient({product}) {
     return (
             <div>
                 <div>
-                    {qty} Left
-                </div>
-                <div>
-                    {parseInt(qty) > 0 && <BuyButton product={product} />}
+                    {qty} Left {parseInt(qty) > 0 && <BuyButton product={product} />}
                 </div>
             </div>
         )

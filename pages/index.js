@@ -34,11 +34,6 @@ export default function Home({products}) {
             <div className={styles.button}>CLIENT SIDE</div>
           </a>
         </Link>
-        <Link href="/products/chart">
-          <a>
-            <div className={styles.button}>Best Sellers</div>
-          </a>
-        </Link>
       </div>
     </div>
   )

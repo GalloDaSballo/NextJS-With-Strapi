@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from '../../styles/Header.module.css'
 
@@ -14,18 +15,27 @@ export default () => {
 
     return(
         <nav className={styles.nav}>
-            <div className={styles.back}>
-                {!isHome && (
-                    <a onClick={goBack}>
-                        {'<'} Go Back
-                    </a>
-                )}
-            </div>
             <div className={styles.masthead}>
-                <h1>The E-Commerce</h1>
+                <div className={styles.back}>
+                    {!isHome && (
+                        <a onClick={goBack}>
+                            {'<'} Go Back
+                        </a>
+                    )}
+                </div>
+                <div className={styles.title}>
+                    <h1><Link href="/"><a>The E-Commerce</a></Link></h1>
+                </div>
             </div>
-
+            <div className={styles.links}>
+                <Link href="/products/chart">
+                    <a className={styles.link}>
+                        Best Sellers
+                    </a>
+                </Link>
+            </div>
         </nav>
+
     )
 
 }

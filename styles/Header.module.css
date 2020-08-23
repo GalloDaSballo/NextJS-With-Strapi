@@ -11,8 +11,13 @@
 
     cursor: pointer;
 }
-
-.masthead{
+.title{
     text-align: center;
     line-height: 24px;
+}
+.links{
+    text-align: center;
+}
+.link{
+    font-weight: bold;
 }
