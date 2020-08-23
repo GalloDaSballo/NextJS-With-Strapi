@@ -1,0 +1,18 @@
+.nav{
+    position: relative;
+    padding-bottom: 42px;
+}
+
+.back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 24px;
+
+    cursor: pointer;
+}
+
+.masthead{
+    text-align: center;
+    line-height: 24px;
+}
