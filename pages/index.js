@@ -23,18 +23,6 @@ export default function Home({products}) {
           </Link>
         </div>
       ))}
-      <div>
-        <Link href="/live-server">
-          <a>
-            <div className={styles.button}>Server Side</div>
-          </a>
-        </Link>
-        <Link href="/live-client">
-          <a>
-            <div className={styles.button}>CLIENT SIDE</div>
-          </a>
-        </Link>
-      </div>
     </div>
   )
 }
