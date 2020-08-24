@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import {API_URL, fromImageToUrl} from '../utils/urls'
@@ -6,6 +7,12 @@ import {formatPrice} from '../utils/format'
 export default function Home({products}) {
   return (
     <div>
+
+      <Head>
+        <title>Entreprenerd Store</title>
+        <meta name="description" content="Alex The Entreprenerd E-Commerce with Next Strapi and Stripe" />
+      </Head>
+
       <h2>Products</h2>
       {products.map(el => (
         <div className={styles.product}>
