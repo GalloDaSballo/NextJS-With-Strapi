@@ -5,7 +5,6 @@ import ProductQty from '../../components/ProductQty'
 import styles from '../../styles/Product.module.css'
 import {API_URL, fromImageToUrl} from '../../utils/urls'
 
-
 const Product = ({product}) => {
   return (
     <div className={styles.product}>

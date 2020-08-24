@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import {API_URL} from '../../utils/urls'
+import {formatPrice} from '../../utils/format'
+
 export default ({products}) => (
     <div>
 
@@ -14,7 +16,7 @@ export default ({products}) => (
         {products.map((product, counter) => (
             <Link href="/products/[id]" as={`/products/${product.id}`}>
                 <a>
-                    <h3>{counter + 1} {product.name}</h3>
+                    <h3>{counter + 1} {product.name} {formatPrice(product.price)}</h3>
                 </a>
             </Link>
         ))}

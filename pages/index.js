@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import {API_URL, fromImageToUrl} from '../utils/urls'
+import {formatPrice} from '../utils/format'
 
 export default function Home({products}) {
   return (
@@ -15,7 +16,7 @@ export default function Home({products}) {
                   <img src={fromImageToUrl(el.image)} />
                 </div>
                 <div className={styles.product__Col}>
-                  {el.name}
+                  {el.name} {formatPrice(el.price)}
                 </div>
               </div>
               
