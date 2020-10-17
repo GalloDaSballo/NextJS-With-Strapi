@@ -1,7 +1,6 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Auth.module.css";
 import { useState } from "react";
-
 import { useAuth } from "../context/authContext";
 
 export default function Home({ products }) {
@@ -9,7 +8,7 @@ export default function Home({ products }) {
   const { loginUser } = useAuth();
 
   return (
-    <div>
+    <div className={styles.auth}>
       <Head>
         <title>Entreprenerd Store</title>
         <meta
@@ -23,6 +22,7 @@ export default function Home({ products }) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         type="email"
+        placeholder="Email address..."
       />
       <button onClick={() => loginUser(input)}>Log In</button>
     </div>

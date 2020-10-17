@@ -7,6 +7,8 @@ import { AuthContext } from "../context/authContext";
 
 import "../styles/globals.css";
 
+import { MAGIC_PUBLIC_KEY } from "../utils/urls";
+
 let m;
 
 function MyApp({ Component, pageProps }) {
@@ -32,7 +34,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   useEffect(() => {
-    m = new Magic("pk_test_CCA972CBE4335CC7");
+    m = new Magic(MAGIC_PUBLIC_KEY);
     (async () => {
       const isLoggedIn = await m.user.isLoggedIn();
 
