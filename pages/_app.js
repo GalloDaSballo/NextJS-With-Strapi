@@ -4,6 +4,7 @@ import Footer from "../components/partials/Footer";
 
 import { Magic } from "magic-sdk";
 import { AuthContext } from "../context/authContext";
+import { useRouter } from "next/router";
 
 import "../styles/globals.css";
 
@@ -13,11 +14,13 @@ let m;
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState(null);
+  const router = useRouter();
 
   const loginUser = async (email) => {
     try {
       const token = await m.auth.loginWithMagicLink({ email });
       setUser({ token, email });
+      router.push("/");
     } catch (err) {
       console.log(err);
     }
