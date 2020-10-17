@@ -1,11 +1,11 @@
 import Head from "next/head";
 import styles from "../styles/Auth.module.css";
-import { useState } from "react";
-import { useAuth } from "../context/authContext";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Home({ products }) {
   const [input, setInput] = useState("");
-  const { loginUser } = useAuth();
+  const { loginUser } = useContext(AuthContext);
 
   return (
     <div className={styles.auth}>

@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../../styles/Header.module.css";
-import { useAuth } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
 
 export default () => {
   const router = useRouter();
   console.log("router", router);
 
   // logic for logout is in place, potentially add a button ?
-  const { user, logoutUser } = useAuth();
+  const { user, logoutUser } = useContext(AuthContext);
   const isHome = router.pathname === "/";
 
   const goBack = (e) => {
