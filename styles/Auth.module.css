@@ -1,0 +1,24 @@
+.auth {
+  min-height: 350px;
+  margin-bottom: 25px;
+}
+.auth input {
+  border: solid 2px black;
+  display: block;
+  font-size: 16px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 30px 0 10px 0;
+}
+.auth button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.auth button:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
