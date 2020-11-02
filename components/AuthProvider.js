@@ -4,6 +4,8 @@ import { MAGIC_PUBLIC_KEY } from "../utils/urls";
 import { useRouter } from "next/router";
 import { AuthContext } from "../context/AuthContext";
 
+//Todo simplify or abstract
+
 let m;
 export const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
@@ -37,6 +39,15 @@ export const AuthProvider = (props) => {
     }
   };
 
+  const getToken = async () => {
+    try{
+      const token = await m.user.getIdToken()
+      return token
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
     m = new Magic(MAGIC_PUBLIC_KEY);
     (async () => {
@@ -53,7 +64,7 @@ export const AuthProvider = (props) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, logoutUser, loginUser, persistUser }}>
+    <AuthContext.Provider value={{ user, logoutUser, loginUser, persistUser, getToken }}>
       {props.children}
     </AuthContext.Provider>
   );

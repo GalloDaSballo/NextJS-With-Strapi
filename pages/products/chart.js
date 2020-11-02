@@ -3,6 +3,9 @@ import Link from 'next/link'
 import {API_URL} from '../../utils/urls'
 import {formatPrice} from '../../utils/format'
 
+//This page will be too much extra work. 
+//Will scrap
+
 export default ({products}) => (
     <div>
 
