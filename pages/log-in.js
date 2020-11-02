@@ -7,6 +7,11 @@ export default function Home({ products }) {
   const [input, setInput] = useState("");
   const { loginUser } = useContext(AuthContext);
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    loginUser(input)
+  }
+  
   return (
     <div className={styles.auth}>
       <Head>
@@ -18,13 +23,16 @@ export default function Home({ products }) {
       </Head>
 
       <h2>Login</h2>
-      <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        type="email"
-        placeholder="Email address..."
-      />
-      <button onClick={() => loginUser(input)}>Log In</button>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          type="email"
+          placeholder="Email address..."
+        />
+        <button type="submit">Log In</button>
+      </form>
+
     </div>
   );
 }

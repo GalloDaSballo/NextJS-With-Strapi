@@ -25,6 +25,7 @@ export const AuthProvider = (props) => {
     try {
       await m.user.logout();
       setUser(null);
+      router.push("/");
     } catch (err) {
       console.log(err);
     }
